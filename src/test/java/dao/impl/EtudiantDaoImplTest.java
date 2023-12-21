@@ -12,7 +12,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EtudiantDaoImplTest {
-
     private EtudiantDao etudiantDao;
     private FiliereDao filiereDao;
     @BeforeEach
@@ -20,7 +19,6 @@ class EtudiantDaoImplTest {
         etudiantDao = new EtudiantDaoImpl();
         filiereDao = new FiliereDaoIpml();
     }
-
     @Test
     void saveOrUpdate() {
         Etudiant e = new Etudiant();
@@ -42,10 +40,8 @@ class EtudiantDaoImplTest {
         e.setCne("P123456789");
         etudiantDao.saveOrUpdate(e);
         boolean del = etudiantDao.delete(e);
-
         assertTrue(del);
     }
-
     @Test
     void getById() {
         Etudiant e = new Etudiant();
@@ -56,11 +52,9 @@ class EtudiantDaoImplTest {
        Etudiant e2 =  etudiantDao.getById(e.getId());
         assertEquals(e.getId() , e2.getId());
     }
-
     @Test
     void getAll() {
         List<Etudiant> etudiants = etudiantDao.getAll();
-
         assertNotNull(etudiants);
     }
 }

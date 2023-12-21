@@ -53,13 +53,11 @@ public class FiliereDaoIpml implements FiliereDao {
     @Override
     public Filiere getById(Integer id) {
         Session session = sessionFactory.openSession();
-
         Filiere filiere = session.get(Filiere.class , id);
         session.close();
         System.out.println("get filiere by id ");
         return filiere;
     }
-
     @Override
     public List<Filiere> getAll() {
         List<Filiere> filieres = null;

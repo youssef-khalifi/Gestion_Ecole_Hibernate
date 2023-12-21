@@ -53,19 +53,16 @@ public class EtudiantDaoImpl implements EtudiantDao {
     @Override
     public Etudiant getById(Integer id) {
         Session session = sessionFactory.openSession();
-
         Etudiant etudiant = session.get(Etudiant.class , id);
         session.close();
         System.out.println("get etudiant by id ");
         return etudiant;
     }
-
     @Override
     public List<Etudiant> getAll() {
         List<Etudiant> etudiants = null;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-
         try {
             etudiants = session.createQuery("from Etudiant " , Etudiant.class).list();
             transaction.commit();
